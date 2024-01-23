@@ -8,7 +8,7 @@ pub struct ID(str);
 
 #[repr(transparent)]
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct OwnedID(Box<str>);
+pub struct OwnedID(Box<ID>);
 
 impl ID {
     #[inline]

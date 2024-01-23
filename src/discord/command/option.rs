@@ -81,9 +81,13 @@ impl<'a> Display for ConvertError<'a> {
 
 impl<'a> Error for ConvertError<'a> {}
 
-pub trait FromCommandOption {
+pub trait FromCommandOption: Sized {
     const OPTION_TYPE: CommandOptionsType;
     const REQUIRED: bool;
+
+    type Error: std::error::Error;
+
+    fn from_raw(option: Option<CommandOption>) -> Option<Self>;
 }
 
 impl TryFrom<Option<CommandOption>> for bool {
