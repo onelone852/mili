@@ -1,0 +1,22 @@
+[package]
+name = "mili"
+version = "0.2.1"
+edition = "2021"
+authors = ["onelone852"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+default = ["localization"]
+full = ["localization"]
+localization = []
+
+[dependencies]
+bitflags = { version = "2.4.1", features = ["serde"] }
+futures = "0.3.30"
+reqwest = "0.11.23"
+serde = { version = "1.0.195", features = ["derive"] }
+serde_json = "1.0.111"
+tokio = { version = "1.35.1", features = ["macros", "rt", "rt-multi-thread", "net", "time"] }
+tokio-tungstenite = { version = "0.21.0", features = ["native-tls"] }
+url = "2.5.0"
